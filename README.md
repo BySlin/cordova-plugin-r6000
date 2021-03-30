@@ -1,3 +1,3 @@
-# cordova-plugin-R6000
+# cordova-plugin-r6000
 UHF PDA R6000
 

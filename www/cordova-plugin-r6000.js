@@ -5,7 +5,7 @@ exports.start = function (success, error) {
 };
 
 exports.stop = function (success, error) {
-  exec(success, error, "cordova-plugin-r6000", "start", []);
+  exec(success, error, "cordova-plugin-r6000", "stop", []);
 };
 
 exports.register = function (success, error) {
@@ -18,4 +18,8 @@ exports.setOutputPower = function (power, success, error) {
 
 exports.setWorkArea = function (area, success, error) {
   exec(success, error, "cordova-plugin-r6000", "setWorkArea", [area]);
+};
+
+exports.setPlaySound = function (playSound, success, error) {
+  exec(success, error, "cordova-plugin-r6000", "setPlaySound", [playSound]);
 };

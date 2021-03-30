@@ -1,13 +1,13 @@
 {
   "name": "cordova-plugin-r6000",
   "version": "1.0.0",
-  "description": "a plugin used for communicate with native serialport.",
+  "description": "uhf pda r6000",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BySlin/cordova-plugin-R6000.git"
   },
-  "author": "izee",
+  "author": "BySlin",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/BySlin/cordova-plugin-R6000/issues"

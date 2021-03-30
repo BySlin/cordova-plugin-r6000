@@ -5,10 +5,11 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
+import org.apache.cordova.CordovaInterface;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import io.cordova.hellocordova.R;
 
 public class Util {
 
@@ -16,10 +17,16 @@ public class Util {
     public static SoundPool sp;
     public static Map<Integer, Integer> suondMap;
     public static Context context;
+    private static CordovaInterface cordova;
+
+    private static int getAppResource(String name, String type) {
+        return cordova.getActivity().getResources().getIdentifier(name, type, cordova.getActivity().getPackageName());
+    }
 
     //init sound pool
-    public static void initSoundPool(Context context) {
-        Util.context = context;
+    public static void initSoundPool(CordovaInterface cordova) {
+        Util.cordova = cordova;
+        Util.context = cordova.getContext();
         sp = new SoundPool
                 .Builder()
                 .setMaxStreams(1)
@@ -29,8 +36,8 @@ public class Util {
                                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                                 .build())
                 .build();
-        suondMap = new HashMap<Integer, Integer>();
-        suondMap.put(1, sp.load(context, R.raw.msg, 1));
+        suondMap = new HashMap<>();
+        suondMap.put(1, sp.load(context, getAppResource("msg", "raw"), 1));
     }
 
     //play sound
